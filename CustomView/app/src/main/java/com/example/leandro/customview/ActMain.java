@@ -58,7 +58,7 @@ public class ActMain extends Activity {
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
 
-            paint.setColor(Color.rgb(30, 30, 30));
+            //paint.setColor(Color.rgb(30, 30, 30));
             for (int m = 0; m < 4; m++) {
                 canvas.drawPath(drawPolygon((m + 1) * 55 + 100, 200, 30, 6), paint);
             }
