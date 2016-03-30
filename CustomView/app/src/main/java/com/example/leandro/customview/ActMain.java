@@ -17,6 +17,7 @@ import android.view.View;
 public class ActMain extends Activity {
     private Tela tela;
     int line[] = {0, 0, 0, 0};
+    int line2[] = {0,0,0,0,0};
     private Path drawPolygon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +40,13 @@ public class ActMain extends Activity {
                 float x = event.getX();
                 float y  = event.getY();
 
-                for(int m = 0; m < 4; m++){
-
-                }
-
                 for(int m = 0; m < 4; m++) {
-
-                    //if( x > (m + 1) * 55 && x < (m * 100) + 145 && y > 55 && y < 145)
+                    if(x > (m + 1) * 55 + 75 && x < (m + 1) * 55 + 100 && y > 175 && y < 200)
+                        line[m] = 1;
+                    tela.invalidate();
+                }
+                for(int m = 0; m < 5; m++) {
+                    if(x > (m + 1) * 55 + 75 && x < (m + 1) * 55 + 100 && y > 175 && y < 200)
                         line[m] = 1;
                     tela.invalidate();
                 }
@@ -60,35 +61,60 @@ public class ActMain extends Activity {
 
             //paint.setColor(Color.rgb(30, 30, 30));
             for (int m = 0; m < 4; m++) {
+                paint.setColor(Color.rgb(0, 0, 150));
                 canvas.drawPath(drawPolygon((m + 1) * 55 + 100, 200, 30, 6), paint);
             }
             for (int m = 0; m < 5; m++) {
+                if(m == 0 || m == 4){
+                    paint.setColor(Color.rgb(0, 0, 150));
+                }else {
+                    paint.setColor(Color.rgb(30, 30, 30));
+                }
                 canvas.drawPath(drawPolygon((m + 1) * 55 + 75, 250, 30, 6), paint);
             }
             for (int m = 0; m < 6; m++) {
+                if(m == 0 || m == 5){
+                    paint.setColor(Color.rgb(0, 0, 150));
+                }else{
+                    paint.setColor(Color.rgb(30, 30, 30));
+                }
                 canvas.drawPath(drawPolygon((m + 1) * 55 + 50, 300, 30, 6), paint);
             }
             for (int m = 0; m < 7; m++) {
+                if(m == 0 || m == 6){
+                    paint.setColor(Color.rgb(0, 0, 150));
+                }else{
+                    paint.setColor(Color.rgb(30, 30, 30));
+                }
                 canvas.drawPath(drawPolygon((m + 1) * 55 + 25, 350, 30, 6), paint);
             }
             for (int m = 0; m < 6; m++) {
+                if(m == 0 || m == 5){
+                    paint.setColor(Color.rgb(0, 0, 150));
+                }else{
+                    paint.setColor(Color.rgb(30, 30, 30));
+                }
                 canvas.drawPath(drawPolygon((m + 1) * 55 + 50, 400, 30, 6), paint);
             }
             for (int m = 0; m < 5; m++) {
+                if(m == 0 || m == 4){
+                    paint.setColor(Color.rgb(0,0,150));
+                }else{
+                    paint.setColor(Color.rgb(30, 30, 30));
+                }
                 canvas.drawPath(drawPolygon((m + 1) * 55 + 75, 450, 30, 6), paint);
             }
             for (int m = 0; m < 4; m++) {
+                paint.setColor(Color.rgb(0,0,150));
                 canvas.drawPath(drawPolygon((m + 1) * 55 + 100, 500, 30, 6), paint);
             }
 
             for (int m = 0; m < 4; m++) {
                 if (line[m] == 1) {
                     paint.setColor(Color.rgb(150, 150, 150));
-                    canvas.drawPath(drawPolygon((m + 1) * 100, 100, 45, 6), paint);
-                    paint.setColor(Color.rgb(30,30,30));
-                    canvas.drawText("hum",100,100,paint);
+                    canvas.drawPath(drawPolygon((m + 1) * 55 + 100, 200, 25, 6), paint);
                 }
-
+                
             }
         }
 
